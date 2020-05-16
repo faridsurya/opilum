@@ -1,0 +1,17 @@
+[
+    {
+        "name":"diamond_1",
+        "data":"assets/patterns/data/diamond_1.json",
+        "thumb":"assets/patterns/thumb/diamond_1.png"
+    },
+    {
+        "name":"small_rect",
+        "data":"assets/patterns/data/small_rect.json",
+        "thumb":"assets/patterns/thumb/small_rect.png"
+    },
+    {
+        "name":"triangle_1",
+        "data":"assets/patterns/data/triangle_1.json",
+        "thumb":"assets/patterns/thumb/triangle_1.png"
+    }
+]

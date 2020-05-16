@@ -1,0 +1,211 @@
+<ng-container>
+<!--toolbar-->
+<mat-toolbar class="example-header">
+<button mat-icon-button (click)="sidenav.toggle()">
+<mat-icon>menu</mat-icon>
+</button>
+<span>OPILUM</span>
+<span class="spacer"></span>
+<button mat-button (click)="exportPng()">DOWNLOAD</button>
+</mat-toolbar>
+<!--end toolbar-->
+
+<mat-sidenav-container class="example-container">
+
+  <mat-sidenav #sidenav mode="side" [position]="'start'" opened class="sidenav-left"
+  [fixedInViewport]="true" [fixedTopGap]="60"
+  [fixedBottomGap]="0">
+
+  <div *ngFor="let n of themes; let idx=index" (click)="selectTheme(idx)" class="uk-width-1-2" [ngClass]="{'bordered':n.selected}" style="padding:3px; display: inline-block;" >
+    <img src="{{n.thumb}}" style="width: 100%;">
+  </div>
+
+
+  </mat-sidenav>
+
+<mat-sidenav #sidenav mode="side" [position]="'end'" opened class="example-sidenav"
+[fixedInViewport]="true" [fixedTopGap]="60"
+[fixedBottomGap]="0">
+
+<!--expand panel-->
+<mat-accordion>
+<!--image config-->
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Gambar
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <!--image editor-->
+<div class="margin-vert">
+<div class="uk-width-1-2" style="display: inline-block;" *ngFor="let n of theme.images; let idx=index;">
+<img src="{{n.url}}" width="100%" (click)="uploadImage('image',n,n.rasio)">
+</div>
+</div>
+<!--end image editor-->    
+  </mat-expansion-panel>
+<!--end image config-->
+<!--color config-->
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Warna
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+<!--warna-->
+<div class="margin-vert">
+  <div class="uk-width-1-4" *ngFor="let n of colors; let idx=index;" 
+  (click)="changeColor(n.name)" style="display: inline-block;" 
+  [ngStyle]="{backgroundColor:n.data.primary.base, border:n.selected ? '3px solid black':''}"
+  >
+  <img src="assets/img/transparent.png" width="100%" >
+  </div>
+  </div>
+<!--end tema warna-->
+</mat-expansion-panel>
+<!--end color config-->
+<!--pattern config-->
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Frame
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <div class="margin-vert">
+  <mat-slide-toggle [(ngModel)]="theme.pattern.show">Tampilkan Pola</mat-slide-toggle>
+  </div>
+  <div class="uk-width-1-4" style="float: left;" *ngFor="let n of patterns; let idx=index;" 
+  (click)="getPatternData(n.name)" [ngStyle]="{border:n.selected ? '2px solid black':''}">
+  <img src="{{n.thumb}}" width="100%" >
+  </div>
+</mat-expansion-panel>
+<!--end pattern config-->
+
+</mat-accordion>
+<!--end expand panel-->
+<!--header editor-->
+<!--end header editor-->
+<mat-form-field [style.fontSize]="10" style="width: 100%;" hidden>  
+  <input matInput>
+  </mat-form-field>
+
+
+
+
+
+
+
+
+</mat-sidenav>
+<!--sidenav content-->
+<mat-sidenav-content style="padding: 20px; background-color: #ccc;">
+<!--halaman-halaman tampil disini-->
+
+
+<div class="uk-margin uk-flex uk-flex-center uk-flex-middle">
+<!--desain-->
+<div id="img" [ngStyle]="theme.container.style">
+<!--images-->
+<div *ngFor="let img of theme.images" [ngStyle]="img.style">
+<img src="{{img.url}}" width="100%">
+</div>
+<!--end images-->
+
+<!--header-->
+<div [ngStyle]="theme.header.style" [ngClass]="theme.header.class" class="opilum-header">
+  <!--enditor for footer-->
+  <div class="header-actions">
+    <button mat-icon-button (click)="addHeaderItem()"><mat-icon>text_format</mat-icon></button>
+    <button mat-icon-button (click)="uploadImage('add-header',null,theme.header.imageItemRatio)"><mat-icon>image</mat-icon></button>
+    <button mat-icon-button (click)="visibilityHeader()"><mat-icon>{{theme.header.showBackground ? 'visibility':'visibility_off'}}</mat-icon></button>
+  </div>
+  <!--end editor for footer-->  
+    <div *ngFor="let n of theme.header.columns; let idx=index" [ngStyle]="theme.header.columnStyle" class="opilum-action">
+      <!--editor for item-->
+      <div class="actions">
+        <button mat-icon-button (click)="removeHeaderItem(idx)"><mat-icon>close</mat-icon></button>
+      </div>
+      <!--end editor for item-->
+      <textarea matInput [ngStyle]="n.style"
+  [(ngModel)]="n.content" *ngIf="n.type == 'text'" AutoSizeInput
+            cdkTextareaAutosize 
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="1"
+            cdkAutosizeMaxRows="1"></textarea>
+
+      <img *ngIf="n.type == 'image'" src="{{n.content}}" [ngStyle]="n.style">
+    </div>
+  </div>
+<!--end header-->
+<!--content-->
+<div *ngFor="let content of theme.contents" [ngStyle]="content.style" [ngClass]="content.class">
+
+  <textarea matInput *ngFor="let m of content.items" [ngStyle]="m.style" style="overflow: hidden;"
+  [(ngModel)]="m.text"
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="1"
+            cdkAutosizeMaxRows="10"></textarea>
+
+</div>
+<!--end content-->
+
+
+
+<!--footer-->
+<div [ngStyle]="theme.footer.style" [ngClass]="theme.footer.class" class="opilum-footer">
+  <!--enditor for footer-->
+  <div class="footer-actions">
+    <button mat-icon-button (click)="addFooterItem()"><mat-icon>text_format</mat-icon></button>
+    <button mat-icon-button (click)="uploadImage('add-footer',null,theme.footer.imageItemRatio)"><mat-icon>image</mat-icon></button>
+    <button mat-icon-button (click)="visibilityFooter()"><mat-icon>{{theme.footer.showBackground ? 'visibility':'visibility_off'}}</mat-icon></button>
+  </div>
+  <!--end editor for footer-->  
+    <div *ngFor="let n of theme.footer.columns; let idx=index" [ngStyle]="theme.footer.columnStyle" class="opilum-action">
+      <!--editor for item-->
+      <div class="actions">
+        <button mat-icon-button (click)="removeFooterItem(idx)"><mat-icon>close</mat-icon></button>
+      </div>
+      <!--end editor for item-->
+      <textarea matInput [ngStyle]="n.style"
+  [(ngModel)]="n.content" *ngIf="n.type == 'text'" AutoSizeInput
+            cdkTextareaAutosize 
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="1"
+            cdkAutosizeMaxRows="1"></textarea>
+
+      <img *ngIf="n.type == 'image'" src="{{n.content}}" [ngStyle]="n.style">
+    </div>
+  </div>
+<!--end footer-->
+
+<!--pattern-->
+<svg *ngIf="theme.pattern.show" [ngStyle]="theme.pattern.containerStyle" style="position: absolute; left: 0; top: 0;"
+width="500"
+height="500"
+[attr.viewBox]="selectedPattern.viewBox">
+<g [attr.transform]="selectedPattern.transform">
+<path [ngStyle]="theme.pattern.style" [attr.d]="selectedPattern.data" />
+</g>
+</svg>
+<!--end pattern-->
+
+<!--masking-->
+<div *ngFor="let mask of theme.masking"
+[ngStyle]="mask.style"
+[ngClass]="mask.class">
+
+</div>
+<!---->
+
+
+</div>
+</div>
+</mat-sidenav-content>
+<!--end sidenav content-->
+</mat-sidenav-container>   
+</ng-container>
+
+
+
+

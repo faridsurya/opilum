@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="200"
+   height="200"
+   viewBox="0 0 52.916665 52.916668"
+   version="1.1"
+   id="svg8"
+   sodipodi:docname="opilum_logo.svg"
+   inkscape:version="0.92.4 (fd57863, 2020-04-02)">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.47393378"
+     inkscape:cx="396.85039"
+     inkscape:cy="561.25984"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:snap-global="false"
+     units="px"
+     inkscape:window-width="1299"
+     inkscape:window-height="713"
+     inkscape:window-x="67"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-244.08332)">
+    <g
+       id="g950"
+       transform="matrix(0.45570556,0,0,0.45570556,-16.790865,187.85938)">
+      <rect
+         y="123.37781"
+         x="36.845863"
+         height="116.1203"
+         width="116.1203"
+         id="rect946"
+         style="opacity:1;fill:none;fill-opacity:1;stroke:none;stroke-width:0.76782084;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.40825692" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path869"
+         d="m 86.117616,148.74769 a 25.386824,25.386824 0 0 0 -25.386817,25.38682 25.386824,25.386824 0 0 0 0.08732,1.99234 H 44.244537 a 52.815752,52.815752 0 0 0 50.659404,38.00139 52.815752,52.815752 0 0 0 50.663549,-38.00139 H 128.2266 A 36.494221,36.494221 0 0 1 95.316568,197.79593 25.386824,25.386824 0 0 0 111.50443,174.13451 25.386824,25.386824 0 0 0 86.117616,148.74769 Z"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.61492872;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.40825692" />
+    </g>
+  </g>
+</svg>

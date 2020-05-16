@@ -1,0 +1,188 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$opilum-primary: mat-palette($mat-indigo);
+$opilum-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$opilum-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$opilum-theme: mat-light-theme($opilum-primary, $opilum-accent, $opilum-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($opilum-theme);
+
+/* You can add global styles to this file, and also import other style files */
+@import './assets/css/uikit.css';
+
+// fonts
+@font-face {
+  font-family: amatic-bold;
+  src: url('./assets/fonts/Amatic_SC/AmaticSC-Bold.ttf');
+}
+@font-face {
+  font-family: amatic-regular;
+  src: url('./assets/fonts/Amatic_SC/AmaticSC-Regular.ttf');
+}
+@font-face {
+  font-family: comicneue-regular;
+  src: url('./assets/fonts/Comic_Neue/ComicNeue-Regular.ttf');
+}
+
+
+textarea{
+  overflow: hidden;
+}
+.spacer{
+    flex-grow: 1;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.square {
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+ }
+ 
+ .masking-full{
+     position: absolute;
+     top:0;
+     bottom: 0;
+     width: 100%;
+ }
+
+ .top-25{
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    height: 125px;
+  }
+  .top-50{
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    height: 250px;
+  }
+  .bottom-25{
+    position: absolute;
+    bottom:0;
+    left: 0;
+    right: 0;
+    height: 125px;
+  }
+  .bottom-50{
+    position: absolute;
+    bottom:0;
+    left: 0;
+    right: 0;
+    height: 250px;
+  }
+  
+  .left-25{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 125px;
+    bottom: 0;  
+  }
+  .left-50{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 250px;
+    bottom: 0;  
+  }
+  .right-25{
+    position: absolute;
+    top:0;
+    width: 125px;
+    right: 0;
+    bottom: 0;  
+  }
+  .right-50{
+    position: absolute;
+    top:0;
+    width: 250px;
+    right: 0;
+    bottom: 0;  
+  }
+
+  .upload-button{
+    position: relative;
+  }
+  .upload-button img{
+    width: 100%;
+  }
+  
+.bordered{
+  border:3px solid black;
+}
+
+// inline editing
+.opilum-action{
+  position: relative;
+}
+.opilum-action:hover{
+  padding:20px;
+}
+.opilum-action:hover .actions{
+  display: block;
+}
+.opilum-action .actions{
+  display: none;
+  position: absolute;
+  top: -30px;
+  right:-30px;
+}
+
+.opilum-footer{
+  position: relative;
+}
+.opilum-footer:hover .footer-actions{
+  display: block;
+}
+.opilum-footer .footer-actions{
+  display: none;
+  position: absolute;
+  right: -55px;
+  bottom: 0;
+  width: 50px;
+  background-color: black;
+  opacity: 0.5;
+  padding-left: 5px;
+}
+
+
+.opilum-header{
+  position: relative;
+}
+.opilum-header:hover .header-actions{
+  display: block;
+}
+.opilum-header .header-actions{
+  display: none;
+  position: absolute;
+  right: -55px;
+  top: 0;
+  width: 50px;
+  background-color: black;
+  opacity: 0.5;
+  padding-left: 5px;
+}

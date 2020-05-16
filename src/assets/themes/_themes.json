@@ -1,0 +1,22 @@
+[
+    {
+        "name":"news_1",
+        "theme":"assets/themes/theme/news_1.json",
+        "thumb":"assets/themes/thumb/news_1.png"
+    },
+    {
+        "name":"news_2",
+        "theme":"assets/themes/theme/news_2.json",
+        "thumb":"assets/themes/thumb/news_2.png"
+    },
+    {
+        "name":"news_3",
+        "theme":"assets/themes/theme/news_3.json",
+        "thumb":"assets/themes/thumb/news_3.png"
+    },
+    {
+        "name":"news_4",
+        "theme":"assets/themes/theme/news_4.json",
+        "thumb":"assets/themes/thumb/news_3.png"
+    }
+]

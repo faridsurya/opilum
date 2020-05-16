@@ -1,0 +1,35 @@
+
+
+
+
+.example-container {
+    position: absolute;
+    top: 60px;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+  }
+  
+  .example-sidenav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+  }
+  .sidenav-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    padding: 10px;
+  }
+
+textarea{
+  background-color: transparent;
+  border: none;
+}
+
+
+
+  
+  
